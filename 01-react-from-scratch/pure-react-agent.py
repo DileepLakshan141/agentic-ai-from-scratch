@@ -81,6 +81,9 @@ def run_hf_react_agent(prompt: str, max_iterations=5):
             print("==========================================")
             return final_answer
 
+        if "Observation:" in model_output:
+            model_output = model_output.split("Observation:")[0].strip()
+    
         # Action Extraction via Regex
         action_match = re.search(r"Action:\s*(\w+)\((.*?)\)", model_output)
 
