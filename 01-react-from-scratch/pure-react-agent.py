@@ -72,7 +72,6 @@ def run_hf_react_agent(prompt: str, max_iterations=5):
             break
 
         print(f"Model Output:\n{model_output}\n")
-        prompt_history += f"{model_output}\n"
 
         if "Final Answer:" in model_output:
             final_answer = model_output.split("Final Answer:")[1].strip()
@@ -81,10 +80,12 @@ def run_hf_react_agent(prompt: str, max_iterations=5):
             print("==========================================")
             return final_answer
 
+       
         if "Observation:" in model_output:
             model_output = model_output.split("Observation:")[0].strip()
-    
-        # Action Extraction via Regex
+
+        prompt_history += f"{model_output}\n"
+
         action_match = re.search(r"Action:\s*(\w+)\((.*?)\)", model_output)
 
         if action_match:
@@ -103,7 +104,8 @@ def run_hf_react_agent(prompt: str, max_iterations=5):
                 observation = f"Error: Tool '{tool_name}' is not recognized."
 
             print(f"👁️ Observation: {observation}")
-            prompt_history += f"\nObservation: {observation}\n"
+            
+            prompt_history += f"Observation: {observation}\n"
         else:
             print("⚠️ Action format not found or model didn't trigger a tool. Continuing...")
 
