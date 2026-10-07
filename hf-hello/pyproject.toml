@@ -1,0 +1,44 @@
+[project]
+name = "hf-hello"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "DileepLakshn141", email = "dileeplakshan212@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "huggingface-hub>=2.1.1",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+hf-hello = "hf_hello:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
