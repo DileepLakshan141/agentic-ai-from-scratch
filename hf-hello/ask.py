@@ -1,12 +1,16 @@
 from groq_llm import llm
 
 
-def ask() -> None:
-    prompt = str(input("Enter a suitable prompt: "))
-    cleaned = prompt.strip()
+def validate_prompt(raw: str) -> str:
+    cleaned = raw.strip()
     if not cleaned:
         raise ValueError("Prompt can not be empty!")
-    response = llm(cleaned)
+    return cleaned
+
+
+def ask() -> None:
+    prompt = validate_prompt(input("Enter a suitable prompt: "))
+    response = llm(prompt)
     print(response)
 
 
