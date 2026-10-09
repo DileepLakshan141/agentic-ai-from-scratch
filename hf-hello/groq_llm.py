@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -13,9 +14,7 @@ def get_env(prop: str) -> str:
 
 
 def llm(prompt: str) -> str:
-    client = OpenAI(
-        api_key=get_env("LLM_API_KEY"), base_url=get_env("LLM_BASE_URL"), timeout=60
-    )
+    client = OpenAI(api_key=get_env("LLM_API_KEY"), base_url=get_env("LLM_BASE_URL"), timeout=60)
     response = client.chat.completions.create(
         model=get_env("LLM_MODEL"),
         messages=[{"role": "user", "content": prompt}],

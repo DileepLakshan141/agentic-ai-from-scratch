@@ -20,12 +20,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.DEBUG, format="%(asctime)s | %(levelname)s | %(message)s"
-    )
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s | %(levelname)s | %(message)s")
     try:
         main()
         logger.debug("name loaded")
     except ValueError as exc:
         logger.error("Startup failed: %s", exc)
-        raise SystemExit(1)
