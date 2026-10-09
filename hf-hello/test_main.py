@@ -1,8 +1,7 @@
+import pytest
 from main import greet
 
 
-def test_greet_func() -> None:
-    names = ["Dileepa", "Alex", "James"]
-    for name in names:
-        result = greet(name, "Good Morning")
-        assert result == f"Good Morning, {name}!"
+@pytest.mark.parametrize("name", ["Dileepa", "Alex", "James"])
+def test_greet_includes_name(name: str) -> None:
+    assert greet(name, "Good Morning") == f"Good Morning, {name}!"
