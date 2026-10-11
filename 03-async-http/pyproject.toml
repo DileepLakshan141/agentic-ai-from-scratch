@@ -1,0 +1,23 @@
+[project]
+name = "03-async-http"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "DileepLakshn141", email = "dileeplakshan212@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "mypy>=2.4.0",
+    "openai>=3.27.0",
+    "pytest>=9.1.1",
+    "python-dotenv>=1.2.4",
+    "ruff>=0.16.10",
+]
+
+[project.scripts]
+03-async-http = "03_async_http:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
