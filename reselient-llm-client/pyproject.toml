@@ -1,0 +1,22 @@
+[project]
+name = "reselient-llm-client"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "DileepLakshn141", email = "dileeplakshan212@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "mypy>=2.4.0",
+    "openai>=3.29.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+reselient-llm-client = "reselient_llm_client:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
