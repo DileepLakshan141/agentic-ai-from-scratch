@@ -26,9 +26,7 @@ tools = [
 
 response = client.chat.completions.create(
     model=os.getenv("LLM_MODEL"),
-    messages=[
-        {"role": "user", "content": "How much does a keyboard cost in our shop?"}
-    ],
+    messages=[{"role": "user", "content": "How much do a keyboard and a mouse cost?"}],
     tools=tools,
 )
 message = response.choices[0].message
