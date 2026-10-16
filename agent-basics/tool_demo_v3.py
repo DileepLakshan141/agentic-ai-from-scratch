@@ -1,7 +1,8 @@
-import os
 import json
-from openai import OpenAI
+import os
+
 from dotenv import load_dotenv
+from openai import OpenAI
 
 load_dotenv()
 
@@ -51,11 +52,11 @@ def get_prices(item: str) -> str:
     return str(price)
 
 
-client = OpenAI(api_key=os.getenv("LLM_API_KEY"), base_url=os.getenv("LLM_BASE_URL"))
+client = OpenAI(api_key=os.environ("LLM_API_KEY"), base_url=os.environ("LLM_BASE_URL"))
 
 for step in range(1, MAX_STEPS + 1):
     response = client.chat.completions.create(
-        model=os.getenv("LLM_MODEL"), messages=MESSAGES, tools=TOOLS
+        model=os.environ("LLM_MODEL"), messages=MESSAGES, tools=TOOLS
     )
 
     message = response.choices[0].message

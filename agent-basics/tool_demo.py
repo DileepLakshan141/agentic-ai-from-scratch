@@ -1,13 +1,14 @@
-import os
 import json
-from openai import OpenAI
+import os
+
 from dotenv import load_dotenv
+from openai import OpenAI
 
 load_dotenv()
 
 PRICES = {"keyboard": 8500, "mouse": 3200}
 
-client = OpenAI(api_key=os.getenv("LLM_API_KEY"), base_url=os.getenv("LLM_BASE_URL"))
+client = OpenAI(api_key=os.environ("LLM_API_KEY"), base_url=os.environ("LLM_BASE_URL"))
 
 tools = [
     {
@@ -25,7 +26,7 @@ tools = [
 ]
 
 response = client.chat.completions.create(
-    model=os.getenv("LLM_MODEL"),
+    model=os.environ("LLM_MODEL"),
     messages=[{"role": "user", "content": "How much do a keyboard and a mouse cost?"}],
     tools=tools,
 )
