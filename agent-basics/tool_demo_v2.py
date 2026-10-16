@@ -32,11 +32,11 @@ tools = [
 
 MAX_STEPS = 5
 
-client = OpenAI(api_key=os.getenv("LLM_API_KEY"), base_url=os.getenv("LLM_BASE_URL"))
+client = OpenAI(api_key=os.environ("LLM_API_KEY"), base_url=os.environ("LLM_BASE_URL"))
 
 for step in range(1, MAX_STEPS + 1):
     response = client.chat.completions.create(
-        model=os.getenv("LLM_MODEL"), messages=messages, tools=tools
+        model=os.environ("LLM_MODEL"), messages=messages, tools=tools
     )
     message = response.choices[0].message
     messages.append(message)
