@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from coding-agent!")
+def safe_path(path: str) -> str:
+    """Placeholder function to satisfy the type checker."""
+    return path

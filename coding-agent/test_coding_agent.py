@@ -1,4 +1,5 @@
 import pytest
+
 from coding_agent import safe_path
 
 

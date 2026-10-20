@@ -1,15 +1,18 @@
 import json
 import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
 from openai.types.chat import ChatCompletionFunctionToolParam
-from coding_agent import read_file
+import typing
+
+from file_tools import read_file
 
 load_dotenv()
 
 MAX_STEPS = 5
 
-messages: list[any] = [
+messages: list[typing.Any] = [
     {
         "role": "system",
         "content": "You are a coding assistant. Use read_file to read files. "
