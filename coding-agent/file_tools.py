@@ -17,6 +17,14 @@ def read_file(path: str) -> str:
         return f"ERROR: {exc}"
 
 
+def write_file(path: str, content: str) -> str:
+    try:
+        safe_path(path).write_text(content, encoding="utf-8")
+        return f"successfully written {len(content)} charaters to path:{path}"
+    except (ValueError, OSError) as exc:
+        return f"ERROR: {exc}"
+
+
 if __name__ == "__main__":
     print(read_file("calc.py"))
     print(read_file("../pyproject.toml"))

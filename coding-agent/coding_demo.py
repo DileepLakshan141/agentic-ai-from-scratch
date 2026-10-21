@@ -1,10 +1,10 @@
 import json
 import os
+import typing
 
 from dotenv import load_dotenv
 from openai import OpenAI
 from openai.types.chat import ChatCompletionFunctionToolParam
-import typing
 
 from file_tools import read_file
 
