@@ -1,0 +1,24 @@
+[project]
+name = "lang-course"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "DileepLakshn141", email = "dileeplakshan212@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "langchain>=1.4.6",
+    "langchain-core>=1.6.12",
+    "langchain-groq>=1.1.3",
+    "langchain-mistralai>=1.1.6",
+    "langgraph>=1.2.16",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+lang-course = "lang_course:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
